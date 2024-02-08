@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose NBA Player</title>
+</head>
+<body>
+    <h1>NBA Player Valuation</h1>
+
+    <form action="/action/choosePlayer" method="POST">
+        <!-- Paragraph Section -->
+        <p>
+            This page allows you to utilize the ML model I created that predicts player Salaries. Each player you select will be labeled as undervalued or overvalued. Meaning some players are paid more than their fair market value and vice versa.
+        </p>
+        <br>
+
+        <label for="nbaPlayers">Choose the NBA Player dropdown menu:</label>
+        <select id="nbaPlayers" name="nbaPlayers">
+            <!-- Populate dropdown options dynamically from DataFrame column -->
+            {% for option in nbaPlayerOptions %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+        <!-- Back Button -->
+        <a href="/">Back</a> <!-- Back button-->
+
+        <!-- Table Section -->
+        <h2>Player Information</h2>
+        <table border="1">
+            {% for title, value in data_dict.items() %}
+            <tr>
+                <th>{{ title }}</th>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+                    <img src="{{ url_for('fig', input=input)}}" alt="Cases in {{ input }}">
+
+    </form>
+</body>
+</html>

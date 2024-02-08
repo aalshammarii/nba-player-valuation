@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NBA Statistics and Player Valuation</title>
+</head>
+<body>
+<h1>{{ message }}</h1>
+    </SELECT>
+<!--    <input type="text" name="locale" placeholder="Enter a locale">-->
+    <p>Select the option you would like to explore:</p>
+    <form action="/action/userSelection" method="POST">
+    <table border=0>
+        {% for key in options %}
+        <tr>
+            <td style="text-align:left"><input type="radio" name="data_request" id={{key}} value={{key}} checked>
+                {{key}} </input></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>

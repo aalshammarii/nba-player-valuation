@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualize Salary Cost per Team</title>
+</head>
+<body>
+    <h1>Visualize Salary Cost per Team</h1> <!-- Header -->
+    <br><br> <!-- Two empty lines after the header -->
+
+    <form action="/action/visualizeTeamSalary" method="POST">
+        <!-- Dropdown Section -->
+        <label for="teamAbbreviation">Choose a Team:</label>
+        <select id="teamAbbreviation" name="teamAbbreviation">
+            <!-- Populate dropdown options dynamically from DataFrame column -->
+            {% for option in teamAbbreviationOptions %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <br><br> <!-- Two empty lines after the dropdown menu -->
+
+        <!-- Inserted Image -->
+
+            <img src="{{ url_for('fig', input=input)}}" alt="Cases in {{ input }}">
+        <br><br> <!-- Two empty lines after the image -->
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+        <br><br> <!-- Two empty lines after the submit button -->
+
+        <!-- Back Button -->
+        <a href="/">Back</a> <!-- Replace "/previous_page" with your actual URL or route -->
+        <br><br> <!-- Two empty lines after the back button -->
+    </form>
+
+    <!-- Empty Figure Section (You can insert your plot here using Matplotlib) -->
+    <div id="figure">
+        <!-- Your plot will be inserted here -->
+    </div>
+    <br><br> <!-- Two empty lines after the figure section -->
+</body>
+</html>
